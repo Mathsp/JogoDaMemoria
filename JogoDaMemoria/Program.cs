@@ -1,10 +1,15 @@
 using JogoDaMemoria.Data;
+using JogoDaMemoria.Interface;
+using JogoDaMemoria.Repositorio;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+//Configurando repositorys
+builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 
 //Chamando no DbContext com a string de conexão
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
