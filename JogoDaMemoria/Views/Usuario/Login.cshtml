@@ -1,7 +1,469 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+
+  *{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .total{
+    position: relative;
+    background-color: red;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 7%;
+    left: 10%;
+    width: 40%;
+    height: 86%;
+    background-color: #ffffff;
+    z-index: 1;
+    display: flex;
+    border-radius: 32px 0px 0px 32px;
+    box-shadow: -7px 18px 19px #0000001c;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .overlay_secundario{
+    position: absolute;
+    top: 7%;
+    left: 50%;
+    width: 40%;
+    height: 86%;
+    background-color: #e6f2ff;
+    z-index: 1;
+    border-radius: 0px 32px 32px 0px;
+    box-shadow: 14px 15px 25px #00000021;
+  }
+
+  .overlay-container{
+  
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 65%;
+    height: 68vh;
+    border-radius: 20px;
+    /* gap: 56px; */
+    flex-direction: column;
+  }
+
+  .overlay-container > h1{
+    font-size: 40px;
+  }
+
+
+  .left-prime{
+    width: 100%;
+    background-color: #cce4ff;
+    height: 100vh;
+    z-index: 0; /* z-index menor para ficar abaixo da overlay */
+  }
+
+  .left-two{
+    width: 100%;
+    background-color: #1f1f70;
+    height: 100vh;
+    z-index: 0; /* z-index menor para ficar abaixo da overlay */
+  }
+
+  .login-google{
+    width: 50%;
+    background-color: #ffffff;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0px 7px 11px #00000021;
+
+
+  }
+  .caixa_texto{
+    width: 50%;
+    background-color: #ffffff;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .login{
+    background: #1d1d68;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    border-radius: 5px;
+    height: 45px;
+  }
+
+  .dark_mode{
+    margin-left: -20px;
+    width: 100%;
+    display: flex;
+    justify-content: right;
+  }
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
 }
-// caua vaz 
-<h1>A tela de login será feita aqui</h1>
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #cce4ff;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #1d1d68;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+.login-g{
+  padding: 13px;
+    width: 100%;
+    border-radius: 5px;
+    background-color: white;
+    border: solid 1px #e4e4e4;
+  
+}
+.login-google{
+  display: flex;
+    justify-content: center;
+    width: 75%;
+}
+.welcome{
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.login-goog{
+  display: flex;
+    justify-content: center;
+    width: 70%;
+}
+
+.you-mail{
+  width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.textarea-text{
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.caixa_texto{
+  width: 70%;
+    /* background-color: #ffffff; */
+    border-radius: 5px;
+    display: flex;
+    height: 33px;
+    justify-content: space-around;
+    align-items: center;
+    /* box-shadow: 0px 7px 11px #00000021; */
+    padding: 6px;
+    border: solid 1px #e6e6e6;
+}
+
+.check{
+  display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 24px 36px;
+    font-size: 1.5vh;
+
+}
+.checkbox-M{
+  width: 19px;
+    height: 16px;
+}
+.login-principal{
+    width: 67%;
+    height: 65%;
+    display: flex;
+    flex-direction: column;
+}
+.log-button{
+
+    padding: 14px;
+    width: 65%;
+    border-radius: 3px;
+    background-color: white;
+    border: solid 1px #e4e4e4;
+    border: hidden;
+    background-color: #090963;
+    color: white;
+    font-size: 1.7vh;
+}
+.login-layout{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+}
+.linha{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.linha_2{
+    width: 16%;
+    height: 1px;
+    background-color:  #c7c7c763;
+}
+
+.linha_meio{
+  padding: 1px 7px;
+  color: #c7c7c7;
+  font-size: 1.4vh;
+}
+
+.linha_sing{
+  margin-top: 25px;
+  display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.linha_2sing{
+  background-color: #c7c7c763;
+  width: 65%;
+  height: 1px;
+}
+
+
+.log-button {
+  position: relative;
+    padding-right: 20px;
+    width: 70%;
+}
+
+.icon-arrow {
+  position: absolute;
+  right: 12px; /* Ajuste a posição horizontal do ícone conforme necessário */
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2em;
+}
+
+.text-dont{
+  font-size: .9em;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 25px;
+  color: #c7c7c7;
+}
+
+.icon-google{
+  position: absolute;
+    left: 13px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2em;
+    width: 19px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.log-button_google{
+position: relative;
+padding: 14px;
+width: 70%;
+border-radius: 3px;
+background-color: white;
+border: solid 1px #e4e4e4;
+background-color: white;
+color: black;
+font-size: 1.7vh;
+box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Adiciona um box-shadow */
+
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover{
+  text-decoration: underline;
+}
+
+.image-jogo{
+  width: 100%;
+  height: 100%;
+}
+
+</style>
+<body>
+  <div class="total">
+    <div class="overlay">
+      <div class="login-principal">
+    <div class="welcome">
+      <h1 style="font-size: 4vh;">Welcome back</h1>
+      <div class="login-goog" style="display: flex;
+      justify-content: center; ">
+
+      </div>
+      <button class="log-button_google">Log in <span class="icon-google"><img src="./img/google.png" alt=""></span></button>
+
+    </div>
+    <div class="linha">
+      
+      <div class="linha_2">
+        
+      </div>
+      <div class="linha_meio">
+        OR LOGIN WITH EMAIL
+      </div>
+      <div class="linha_2">
+        
+      </div>
+    </div>
+    
+    <br><br>
+    
+    <div class="you-mail">
+      <input type="text" class="caixa_texto" placeholder="Your email">
+      <input type="text" class="caixa_texto" placeholder="You PassWord">
+    </div>
+
+    <div class="check">
+      <div class="logado">
+        <input type="checkbox" id="checkbox" name="checkbox" class="checkbox-M">
+        <label for="checkbox">Mantenha-me logado</label>
+      </div>
+      <div class="link">
+        <a href="#" >Forgot password</a>
+      </div>
+    </div>
+    <div class="login-layout">
+      <button class="log-button">Log in <span class="icon-arrow">&rarr;</span></button>
+    </div>
+  <div class="linha_sing">
+    <div class="linha_2sing">
+    </div>
+  </div>
+  <div class="text-dont">
+    <p>Don't have an account yet? </p><a href="#">Sing up</a>
+  </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+
+
+
+
+
+
+
+    </div> <!-- Nova div overlay -->
+    <div class="overlay_secundario">
+      <img src="../img/Innovation-amico.svg" alt="" class="image-jogo">
+    </div> <!-- Nova div overlay -->
+    <div class="left-prime"></div>
+    <div class="left-two">
+      <div class="dark_mode">
+        <label class="switch">
+          <input type="checkbox">
+          <span class="slider"></span>
+        </label>
+      </div>
+    </div>
+  </div> 
+</body>
+</html>

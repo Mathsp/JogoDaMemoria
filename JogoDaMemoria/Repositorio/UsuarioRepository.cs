@@ -30,7 +30,7 @@ namespace JogoDaMemoria.Repositorio
                 _dbContext.SaveChanges();
                 return true;
             }
-            catch(Exception e)
+            catch(Exception )
             {
                 return false;
             }
