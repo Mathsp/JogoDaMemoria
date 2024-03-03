@@ -22,9 +22,17 @@ namespace JogoDaMemoria.Controllers
         }
 
         [HttpGet]
-        public bool AutenticaUsuario(string userName, string Senha)
+        public IActionResult AutenticaUsuario(string userName, string senha)
         {
-            return true;
+            try
+            {
+                _usuarioRepository.ValidaUsuario(userName, senha);
+                return View();
+            }
+            catch(Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
 
         [HttpPost]
