@@ -1,6 +1,7 @@
 ﻿using JogoDaMemoria.Data;
 using JogoDaMemoria.Interface;
 using JogoDaMemoria.Models;
+using JogoDaMemoria.Repositorio.Exceptions;
 
 namespace JogoDaMemoria.Repositorio
 {
@@ -36,6 +37,20 @@ namespace JogoDaMemoria.Repositorio
             }
            
 
+        }
+
+        public bool ValidaUsuario(string userName, string senha)
+        {
+            var usuario = _dbContext.Usuarios.FirstOrDefault(u => u.Nome == userName && u.Senha == senha);
+
+            if (usuario != null)
+            {
+                return true;
+            }
+            else
+            {
+                throw new FalhaLogin("Login incorreto");
+            }
         }
     }
 }
