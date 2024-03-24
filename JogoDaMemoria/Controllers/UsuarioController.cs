@@ -1,4 +1,5 @@
 ﻿using JogoDaMemoria.Interface;
+using JogoDaMemoria.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JogoDaMemoria.Controllers
@@ -35,10 +36,21 @@ namespace JogoDaMemoria.Controllers
             }
         }
 
+        //[HttpPost]
+        //public void CadastroUsuario(string formData)
+        //{
+        //    _usuarioRepository.CadastrarUsuario(formData);
+        //}
+
+
+   
+
+
         [HttpPost]
-        public void CadastroUsuario(string email, string userName, string nome, string senha, DateTime dataNascimento)
+        public void CadastroUsuario(CadastroUsuarioM formData)
         {
-            _usuarioRepository.CadastrarUsuario(email, userName, nome, senha, dataNascimento);
+            _usuarioRepository.CadastrarUsuario(formData);
         }
+
     }
 }

@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <script type="text/javascript" src="/jquery-3.7.1.min.js"></script>
+
+   
 </head>
 <style>
     @@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&display=swap');
@@ -242,8 +246,7 @@
     }
 
     .login-principal {
-        width: 67%;
-        height: 65%;
+        width: 490px;
         display: flex;
         flex-direction: column;
     }
@@ -381,22 +384,21 @@
                     </div>
                 </div>
                 <br><br>
-                <div class="you-mail">
-                    <input type="text" class="caixa_texto" placeholder="Your email">
-                    <input type="text" class="caixa_texto" placeholder="You PassWord">
-                </div>
-                <div class="check">
-                    <div class="logado">
-                        <input type="checkbox" id="checkbox" name="checkbox" class="checkbox-M">
-                        <label for="checkbox">Mantenha-me logado</label>
+                <form id="FORM_CADASTRO">
+                    <div class="you-mail">
+                        <input type="text" class="caixa_texto" name="Email" placeholder="Your email">
+                        <input type="text" class="caixa_texto" name="Senha" placeholder="Your Password">
                     </div>
-                    <div class="link">
-                        <a href="#">Forgot password</a>
+                    <div class="check">
+                        <div class="link">
+                            <a href="#">Forgot password</a>
+                        </div>
                     </div>
-                </div>
-                <div class="login-layout">
-                    <button class="log-button" onclick="RedirecionaPg()">Log in <span class="icon-arrow">&rarr;</span></button>
-                </div>
+                    <div class="login-layout">
+                        <button class="log-button" onclick="RedirecionaPg()">Entrar <span class="icon-arrow">&rarr;</span></button>
+                    </div>
+                </form>
+
                 <div style="display: flex;justify-content: center; align-items: baseline; gap: 20px; height: 63px;">
                     <div class="linha_sing">
                         Não tem uma conta ainda?
@@ -423,14 +425,34 @@
         </div>
     </div>
     <script>
+
         function RedirecionaPg() {
-            window.location.href = "../Home/Index"
+            debugger
+            let email = document.getElementById("FORM_CADASTRO").elements["Email"].value;
+            let senha = document.getElementById("FORM_CADASTRO").elements["Senha"].value;
+
+            let formData = {
+                Email: email,
+                Senha: senha
+            };
+
+
+            $.ajax({
+                url: "/Usuario/CadastroUsuario", 
+                type: "POST",
+                data: formData,
+                dataType: "json",
+                success: function (data) {
+                    console.log("Dados enviados com sucesso!");
+                },
+                error: function () {
+                    console.log("Erro ao enviar dados!");
+                }
+            });
         }
 
-        function RedirecionaCadastro() {
-            debugger
-            window.location.href = "../Cadastro/Index"
-        }
+
+
     </script>
 </body>
 </html>

@@ -2,6 +2,7 @@
 using JogoDaMemoria.Interface;
 using JogoDaMemoria.Models;
 using JogoDaMemoria.Repositorio.Exceptions;
+using Newtonsoft.Json;
 
 namespace JogoDaMemoria.Repositorio
 {
@@ -12,32 +13,30 @@ namespace JogoDaMemoria.Repositorio
         {
             _dbContext = dbContext;
         }
-        public bool CadastrarUsuario(string email, string userName, string nome, string senha, DateTime dataNascimento)
+
+        public void CadastrarUsuario(CadastroUsuarioM formData)
         {
-            try
-            {
-                var usuario = new Usuario
-                {
-                    Email = email,
-                    UserName = userName,
-                    Nome = nome,
-                    Senha = senha,
-                    DataDeNascimento = dataNascimento,
-                    DataInclusao = DateTime.Now.ToLocalTime(),
-                    DataAlteracao = DateTime.Now.ToLocalTime(),
-                };
-
-                _dbContext.Usuarios.Add(usuario);
-                _dbContext.SaveChanges();
-                return true;
-            }
-            catch(Exception )
-            {
-                return false;
-            }
-           
-
+            return;
         }
+
+        //public bool CadastrarUsuario(string formData)
+        //{
+        //    try
+        //    {
+        //        var usuario = new Usuario();
+        //         JsonConvert.PopulateObject(formData, usuario);
+
+        //        _dbContext.Usuarios.Add(usuario);
+        //        _dbContext.SaveChanges();
+        //        return true;
+        //    }
+        //    catch(Exception )
+        //    {
+        //        return false;
+        //    }
+
+
+        //}
 
         public bool ValidaUsuario(string userName, string senha)
         {
