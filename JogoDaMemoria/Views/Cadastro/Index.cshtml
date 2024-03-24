@@ -225,7 +225,7 @@
         align-items: center;
         padding: 16px;
         border: solid 1px #e6e6e6;
-        font-size: 12px;
+        font-size: 0.9em;
     }
 
     .check {
@@ -246,6 +246,7 @@
         height: 65%;
         display: flex;
         flex-direction: column;
+        justify-content:center
     }
 
     .log-button {
@@ -359,57 +360,72 @@
         width: 100%;
         height: 100%;
     }
+
+    .password-field {
+        -webkit-text-security: disc; /* Para navegadores baseados no WebKit, como Safari */
+        text-security: disc; /* Para navegadores que suportam a propriedade */
+        width: 70%;
+        /* background-color: #ffffff; */
+        border-radius: 5px;
+        display: flex;
+        height: 33px;
+        justify-content: space-around;
+        align-items: center;
+        padding: 16px;
+        border: solid 1px #e6e6e6;
+        font-size: 0.9em;
+    }
 </style>
 <body>
     <div class="total">
         <div class="overlay">
             <div class="login-principal">
                 <div class="welcome">
-                    <h1 style="font-size: 4vh;">Welcome back</h1>
+                    <h1 style="font-size: 4vh;">Cadastro de Usuário</h1>
                     <div class="login-goog" style="display: flex;
                      justify-content: center; ">
                     </div>
-                    <button class="log-button_google">Log in <span class="icon-google"><img src="./css/Img/google.jpg.jpg"></span></button>
+                    @* <button class="log-button_google">Log in <span class="icon-google"><img src="./css/Img/google.jpg.jpg"></span></button> *@
                 </div>
                 <div class="linha">
                     <div class="linha_2">
                     </div>
                     <div class="linha_meio">
-                        OR LOGIN WITH EMAIL
+                        Preencha os Campos
                     </div>
                     <div class="linha_2">
                     </div>
                 </div>
-                <br><br>
+                <br>
                 <div class="you-mail">
-                    <input type="text" class="caixa_texto" placeholder="Your email">
-                    <input type="text" class="caixa_texto" placeholder="You PassWord">
+                    <input type="text" class="caixa_texto" placeholder="Nome">
+                    <input type="password" class="password-field" placeholder="Senha">
                 </div>
                 <div class="check">
-                    <div class="logado">
+                @*     <div class="logado">
                         <input type="checkbox" id="checkbox" name="checkbox" class="checkbox-M">
                         <label for="checkbox">Mantenha-me logado</label>
-                    </div>
+                    </div> *@
                     <div class="link">
-                        <a href="#">Forgot password</a>
-                    </div>
+@*                         <a href="#">Forgot password</a>
+ *@                    </div>
                 </div>
                 <div class="login-layout">
-                    <button class="log-button" onclick="RedirecionaPg()">Log in <span class="icon-arrow">&rarr;</span></button>
+                    <button class="log-button" onclick="RedirecionaPg()">Cadastrar <span class="icon-arrow">&rarr;</span></button>
                 </div>
-                <div style="display: flex;justify-content: center; align-items: baseline; gap: 20px; height: 63px;">
+              @*   <div style="display: flex;justify-content: center; align-items: baseline; gap: 20px; height: 63px;">
                     <div class="linha_sing">
                         Não tem uma conta ainda?
                     </div>
                     <div class="text-dont">
                         <a onclick="RedirecionaCadastro()">Cadastrar-se</a>
                     </div>
-                </div>
+                </div> *@
             </div>
         </div>
         <!-- Nova div overlay -->
         <div class="overlay_secundario">
-            <img src="./css/Img/cerebro.jpg" alt="" class="image-jogo">
+            <img src="/css/Img/CadastroCerebro.jpg" class="image-jogo">
         </div>
         <!-- Nova div overlay -->
         <div class="left-prime"></div>

@@ -11,6 +11,9 @@ builder.Services.AddControllersWithViews();
 //Configurando repositorys
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 
+//Config Repository CadastroRepository
+builder.Services.AddScoped<ICadastroRepository, CadastroRepository>();
+
 //Chamando no DbContext com a string de conexão
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {

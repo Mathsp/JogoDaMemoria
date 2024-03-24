@@ -1,8 +1,478 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <link href="./output.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+  <title>Document</title>
+  <style>
+    @@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .total {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 7%;
+      left: 9%;
+      width: 21%;
+      height: 86%;
+      background-color: #ffffff;
+      z-index: 1;
+      display: flex;
+      border-radius: 32px 0px 0px 32px;
+      box-shadow: -7px 18px 19px #0000001c;
+      align-items: center;
+      justify-content: space-evenly;
+      flex-direction: column;
+      opacity: 1;
+      transition: background-color 0.5s ease;
+    }
+
+    .imcorporamento {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      height: 200px;
+    }
+
+    .play {
+      border: solid 1px #042757;
+      border-radius: 9px;
+      justify-content: center;
+      display: flex;
+      align-items: center;
+      width: 270px;
+      height: 49px;
+    }
+
+    .overlay_secundario {
+      position: absolute;
+      top: 7%;
+      left: 30%;
+      width: 63%;
+      height: 86%;
+      background-color: #02275afa;
+      z-index: 2;
+      border-radius: 0px 32px 32px 0px;
+      box-shadow: 14px 15px 25px #00000021;
+      transition: width 1s, height 0.9s, left 1s, top 1s;
+    }
+
+    .overlay-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      width: 65%;
+      height: 68vh;
+      border-radius: 20px;
+      flex-direction: column;
+    }
+
+    .overlay-container > h1 {
+      font-size: 40px;
+    }
+
+    .left-prime {
+      width: 100%;
+      background-color: #cce4ff;
+      height: 100vh;
+      z-index: 0;
+    }
+
+    .left-two {
+      width: 100%;
+      background-color: #cce4ff;
+      height: 100vh;
+      z-index: 0;
+    }
+
+    .dark_mode {
+      margin-left: -20px;
+      width: 100%;
+      display: flex;
+      justify-content: right;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: .4s;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: .4s;
+    }
+
+    input:checked + .slider {
+      background-color: #cce4ff;
+    }
+
+    input:focus + .slider {
+      box-shadow: 0 0 1px #1d1d68;
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(26px);
+    }
+
+    .slider.round {
+      border-radius: 34px;
+    }
+
+    .slider.round:before {
+      border-radius: 50%;
+    }
+
+    .login-g {
+      padding: 13px;
+      width: 100%;
+      border-radius: 5px;
+      background-color: white;
+      border: solid 1px #e4e4e4;
+    }
+
+    .login-google {
+      display: flex;
+      justify-content: center;
+      width: 75%;
+    }
+
+    .welcome {
+      height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+
+    .login-goog {
+      display: flex;
+      justify-content: center;
+      width: 70%;
+    }
+
+    .you-mail {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .textarea-text {
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .caixa_texto {
+      width: 70%;
+      border-radius: 5px;
+      display: flex;
+      height: 33px;
+      justify-content: space-around;
+      align-items: center;
+      padding: 6px;
+      border: solid 1px #e6e6e6;
+    }
+
+    .check {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      padding: 24px 36px;
+      font-size: 1.5vh;
+    }
+
+    .checkbox-M {
+      width: 19px;
+      height: 16px;
+    }
+
+    .login-principal {
+      width: 67%;
+      height: 65%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .log-button {
+      padding: 14px;
+      width: 65%;
+      border-radius: 3px;
+      background-color: white;
+      border: solid 1px #e4e4e4;
+      border: hidden;
+      background-color: #090963;
+      color: white;
+      font-size: 1.7vh;
+    }
+
+    .login-layout {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: auto;
+    }
+
+    .linha {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .linha_2 {
+      width: 16%;
+      height: 1px;
+      background-color: #c7c7c763;
+    }
+
+    .linha_meio {
+      padding: 1px 7px;
+      color: #c7c7c7;
+      font-size: 1.4vh;
+    }
+
+    .linha_sing {
+      margin-top: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .linha_2sing {
+      background-color: #c7c7c763;
+      width: 65%;
+      height: 1px;
+    }
+
+    .log-button {
+      position: relative;
+      padding-right: 20px;
+      width: 70%;
+    }
+
+    .icon-arrow {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.2em;
+    }
+
+    .text-dont {
+      font-size: .9em;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      margin-top: 25px;
+      color: #c7c7c7;
+    }
+
+    .icon-google {
+      position: absolute;
+      left: 13px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.2em;
+      width: 19px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .log-button_google {
+      position: relative;
+      padding: 14px;
+      width: 70%;
+      border-radius: 3px;
+      background-color: white;
+      border: solid 1px #e4e4e4;
+      background-color: white;
+      color: black;
+      font-size: 1.7vh;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .image-jogo {
+      width: 100%;
+      height: 100%;
+    }
+
+    .title-memory {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      padding: 5px;
+      background-color: #001d4742;
+    }
+
+    .overlay_secundario-sumido {
+      position: absolute;
+      top: 7%;
+      left: 9%;
+      width: 84%;
+      height: 86%;
+      border-radius: 27px 32px 32px 27px;
+    }
+
+    .fechar {
+      display: flex;
+      justify-content: flex-start;
+      align-items: end;
+      width: 100%;
+    }
+
+    .button-fechar {
+      width: 30px;
+      height: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #02275afa;
+      color: white;
+      border-radius: 100%;
+      position: absolute;
+      top: 12px;
+      left: 8px;
+    }
+
+    .open {
+      width: 30px;
+      height: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: red;
+      color: white;
+      border-radius: 100%;
+    }
+
+    .butos{
+      display: flex;
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="total">
+    <div class="overlay">
+      <div class="fechar">
+        <button class="button-fechar" onclick="animation()">
+          <i class="material-icons">close</i>
+        </button>
+      </div>
+      <div class="imcorporamento">
+        <div class="play">Play</div>
+        <div class="play">Creditos</div>
+        <div class="play">Opções</div>
+      </div>
+      <div class="menu">Menu</div>
+    </div>
+    <div class="overlay_secundario ">
+      <div class="cons">
+        <div class="header_interno" style=" display: flex;">
+          <div class="butos" style="background-color: red;">
+            <button class="open" onclick="animation()">
+              <i class="material-icons">close</i>
+            </button>
+          </div>        
+          <div class="intro" style="display: flex; justify-content: center; align-items: center; background: blue; width: 100%; height: 30px;">
+            teste
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="left-prime"></div>
+    <div class="left-two">
+      <div class="dark_mode">
+        <label class="switch">
+          <input type="checkbox">
+          <span class="slider"></span>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <script>
+   function animation() {
+       debugger
+    $(".overlay").fadeToggle(function() {
+        $(".overlay_secundario").toggleClass("overlay_secundario-sumido");
+        aparece_button();
+    });
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+function aparece_button() {
+    // Sua função anterior para mostrar o botão ou fazer qualquer outra ação
+    $(".butos").css("background-color","blue")
+    // Adicione aqui o código para fazer o overlay voltar ao normal quando o novo botão for clicado
+    $(".butos").on("click", function() {
+        $(".overlay").fadeToggle(); // Volta ao normal o overlay principal
+        $(".overlay_secundario").toggleClass("overlay_secundario-sumido"); // Remove a classe que oculta o overlay secundário
+    });
+}
+
+    
+    
+  </script>
+</body>
+</html>
