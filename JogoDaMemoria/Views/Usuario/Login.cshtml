@@ -387,11 +387,11 @@
                 <form id="FORM_CADASTRO">
                     <div class="you-mail">
                         <input type="text" class="caixa_texto" name="Email" placeholder="Your email">
-                        <input type="text" class="caixa_texto" name="Senha" placeholder="Your Password">
+                        <input type="password" class="caixa_texto" name="Senha" placeholder="Your Password">
                     </div>
                     <div class="check">
                         <div class="link">
-                            <a href="#">Forgot password</a>
+                            <button  id="btn-show-sweetalert" >Forgot password</button>
                         </div>
                     </div>
                     <div class="login-layout">
@@ -424,7 +424,48 @@
             </div>
         </div>
     </div>
+    <script src="./js/sweetalert2 .js" ></script>
     <script>
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const btnShowSweetAlert = document.querySelector('#btn-show-sweetalert');
+            btnShowSweetAlert.addEventListener('click', function () {
+                // Desabilita o botão para evitar múltiplos cliques
+                btnShowSweetAlert.disabled = true;
+
+                Swal.fire({
+                    title: "Enviar Email",
+                    input: 'email',
+                    inputPlaceholder: 'Digite seu email',
+                    showCancelButton: true,
+                    confirmButtonText: 'Enviar',
+                    cancelButtonText: 'Cancelar',
+                    preConfirm: (email) => {
+                        if (!email) {
+                            Swal.showValidationMessage('Por favor, digite um email válido');
+                        }
+                        return email;
+                    }
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        const email = result.value;
+                        // Simule o envio de email (você pode substituir por sua lógica real de envio de email)
+                        Swal.fire({
+                            title: 'Email Enviado!',
+                            text: `Email: ${email}`,
+                            icon: 'success'
+                        });
+                    }
+                    // Reabilita o botão após o SweetAlert ser fechado
+                    btnShowSweetAlert.disabled = false;
+                });
+            });
+        });
+
+
+
+
+
 
         function RedirecionaPg() {
             debugger
@@ -450,7 +491,8 @@
             });
         }
 
-
+         
+        
 
     </script>
 </body>
