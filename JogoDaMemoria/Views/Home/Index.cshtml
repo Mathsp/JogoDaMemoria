@@ -32,11 +32,11 @@
 
     .overlay {
       position: absolute;
-      top: 7%;
+      top: 5%;
       left: 9%;
       width: 21%;
-      height: 86%;
-      background-color: #ffffff;
+      height: 90%;
+            background-color: #F1EEE7;
       z-index: 1;
       display: flex;
       border-radius: 32px 0px 0px 32px;
@@ -65,16 +65,16 @@
     }
 
     .overlay_secundario {
-      position: absolute;
-      top: 7%;
-      left: 30%;
-      width: 63%;
-      height: 86%;
-      background-color: #02275afa;
-      z-index: 2;
-      border-radius: 0px 32px 32px 0px;
-      box-shadow: 14px 15px 25px #00000021;
-      transition: width 1s, height 0.9s, left 1s, top 1s;
+            position: absolute;
+            top: 5%;
+            left: 30%;
+            width: 63%;
+            height: 90%;
+            background-color: #0e005f;
+            z-index: 2;
+            border-radius: 0px 32px 32px 0px;
+            box-shadow: 14px 15px 25px #00000021;
+            transition: width 1s, height 0.9s, left 1s, top 1s;
     }
 
     .overlay-container {
@@ -237,7 +237,7 @@
     }
 
     .login-principal {
-      width: 67%;
+      width: 65%;
       height: 65%;
       display: flex;
       flex-direction: column;
@@ -366,10 +366,10 @@
 
     .overlay_secundario-sumido {
       position: absolute;
-      top: 7%;
+      top: 5%;
       left: 9%;
       width: 84%;
-      height: 86%;
+      height: 90%;
       border-radius: 27px 32px 32px 27px;
     }
 
@@ -386,7 +386,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: #2c2ca1;
+      background: #0e005f;
       color: white;
       border-radius: 100%;
       position: absolute;
@@ -411,12 +411,52 @@
 
     .butos{
             display: flex;
-            background: #2c2ca1;
+            background: #0e005f;
             display: flex;
             justify-content: center;
             align-items: center;
     }
 
+        .template-jogo {
+            width: 100%;
+            height: 604px;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .crd {
+            width: 184px;
+            display: flex;
+            border-radius: 22px;
+            height: 111px;
+            background: #F1EEE7;
+            margin: 5px;
+            border: solid 3px #948BFF;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.9s ease;
+            cursor:pointer;
+        }
+
+        .introt{
+            width: 50%;
+            background: #F1EEE7;
+            border-radius: 20px;
+            /* align-items: center; */
+            justify-content: center;
+            color: #062a5d;
+            display: flex;
+            margin-top: 10px;
+        
+        }
+
+        img{
+            height: 73px;
+        }
 
 
 
@@ -437,7 +477,8 @@
       </div>
       <div class="menu">Menu</div>
     </div>
-    <div class="overlay_secundario ">
+    <div>
+    <div class="overlay_secundario">
       <div class="cons">
         <div class="header_interno" style=" display: flex;">
           <div class="butos">
@@ -445,12 +486,32 @@
               <i class="material-icons">close</i>
             </button>
           </div>
-          <div class="intro" style="display: flex; justify-content: center; align-items: center; background: #2c2ca1; width: 100%; height: 30px; color:white; font-size:1.3em;">
-            Jogo Da Memória
+          <div class="intro" style="display: flex; justify-content: center; align-items: center; width: 100%; height: 41px; color:white; font-size:1.3em;">
+            <div class="introt">Jogo Da Memória</div>
           </div>
         </div>
       </div>
+      <div class="template-jogo">
+                    <button class="crd"><img src="/css/Img/INTERROGAÇAO-2.png"> </button>
+                    <button class="crd"><img src="/css/Img/INTERROGAÇAO-2.png"> </button>
+                    <button class="crd"><img src="/css/Img/INTERROGAÇAO-2.png"> </button>
+                    <button class="crd"><img src="/css/Img/INTERROGAÇAO-2.png"> </button>
+                    <button class="crd"><img src="/css/Img/INTERROGAÇAO-2.png"> </button>
+                    <button class="crd"><img src="/css/Img/INTERROGAÇAO-2.png"> </button>
+                    <button class="crd"><img src="/css/Img/INTERROGAÇAO-2.png"> </button>
+                    <button class="crd"><img src="/css/Img/INTERROGAÇAO-2.png"> </button>
+                    <button class="crd"><img src="/css/Img/INTERROGAÇAO-2.png"> </button>
+                    <button class="crd"><img src="/css/Img/INTERROGAÇAO-2.png"> </button>
+                    <button class="crd"><img src="/css/Img/INTERROGAÇAO-2.png"> </button>
+                    <button class="crd"><img src="/css/Img/INTERROGAÇAO-2.png"> </button>
+                    <button class="crd"><img src="/css/Img/INTERROGAÇAO-2.png"> </button>
+                    <button class="crd"><img src="/css/Img/INTERROGAÇAO-2.png"> </button>
+                    <button class="crd"><img src="/css/Img/INTERROGAÇAO-2.png"> </button>
+                    <button class="crd"><img src="/css/Img/INTERROGAÇAO-2.png"> </button>
+
+      </div>
     </div>
+        </div>
     <div class="left-prime"></div>
     <div class="left-two">
       <div class="dark_mode">
@@ -469,37 +530,48 @@
             $('.open').css('display', 'flex');
           alongaquadro();
       }
-
+      
     function alongaquadro() {
+        debugger
             $('.overlay_secundario').css({
             'position': 'absolute',
-            'top': '7%',
+            'top': '5%',
             'left': '9%',
             'width': '84%',
-            'height': '86%',
-            'background-color': '#02275afa',
+            'height': '90%',
+                'background-color': '#0e005f',
             'z-index': '2',
             'border-radius': '32px',
             'box-shadow': '14px 15px 25px #00000021',
-            'transition': 'width 1s, height 0.9s, left 1s, top 1s'
+
+
         });
+
+        $(".crd").css({
+            'width':'249px'
+         })
     }
 
     //open overlay
-    debugger
+    
         function animation_two() {
+            debugger
             $('.overlay_secundario').css({
                 'position': 'absolute',
-                'top': '7%',
+                'top': '5%',
                 'left': '30%',
                 'width': '63%',
-                'height': '86%',
-                'background-color': '#02275afa',
+                'height': '90%',
+                'background-color': '#0e005f',
                 'z-index': '2',
                 'border-radius': '0px 32px 32px 0px',
                 'box-shadow': '14px 15px 25px #00000021',
-                'transition': 'width 1s, height 0.9s, left 1s, top 1s'
+                'transition': 'all 0.9s ease'
             });
+            $(".crd").css({
+                'width': ''
+            })
+
             $('.overlay').css('display', 'flex');
             $('.open').css('display', 'none');
       }
