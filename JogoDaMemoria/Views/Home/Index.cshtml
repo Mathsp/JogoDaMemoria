@@ -31,20 +31,20 @@
     }
 
     .overlay {
-      position: absolute;
-      top: 5%;
-      left: 9%;
-      width: 21%;
-      height: 90%;
-            background-color: #F1EEE7;
-      z-index: 1;
-      display: flex;
-      border-radius: 32px 0px 0px 32px;
-      box-shadow: -7px 18px 19px #0000001c;
-      align-items: center;
-      justify-content: space-evenly;
-      flex-direction: column;
-      transition: opacity 0.5s ease; /* Transição para a propriedade opacity */
+            position: absolute;
+            top: 5%;
+            left: 9%;
+            width: 21%;
+            height: 90%;
+            background-color: #fabd4a;
+            z-index: 1;
+            display: flex;
+            border-radius: 32px 0px 0px 32px;
+            box-shadow: -7px 18px 19px #0000001c;
+            align-items: center;
+            justify-content: space-evenly;
+            flex-direction: column;
+            transition: opacity 0.5s ease;
     }
 
     .imcorporamento {
@@ -55,13 +55,15 @@
     }
 
     .play {
-      border: solid 1px #042757;
-      border-radius: 9px;
-      justify-content: center;
-      display: flex;
-      align-items: center;
-      width: 270px;
-      height: 49px;
+            border-radius: 9px;
+            justify-content: center;
+            display: flex;
+            align-items: center;
+            width: 270px;
+            height: 49px;
+            color: #eae1b6;
+            font-family: cursive;
+            font-weight: bold;
     }
 
     .overlay_secundario {
@@ -70,11 +72,11 @@
             left: 30%;
             width: 63%;
             height: 90%;
-            background-color: #0e005f;
+            background-color: rgb(18 91 124);
             z-index: 2;
             border-radius: 0px 32px 32px 0px;
-            box-shadow: 14px 15px 25px #00000021;
-            transition: width 1s, height 0.9s, left 1s, top 1s;
+            box-shadow: rgba(0, 0, 0, 0.13) 14px 15px 25px;
+            transition: all 0.9s ease 0s;
     }
 
     .overlay-container {
@@ -386,7 +388,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: #0e005f;
+      background: #125b7c;
       color: white;
       border-radius: 100%;
       position: absolute;
@@ -401,7 +403,7 @@
             height: 25px;
             justify-content: center;
             align-items: center;
-            background: red;
+            background: #d8294a;
             color: white;
             border-radius: 100%;
             border: none;
@@ -411,7 +413,7 @@
 
     .butos{
             display: flex;
-            background: #0e005f;
+            background: #125b7c;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -433,24 +435,25 @@
             display: flex;
             border-radius: 22px;
             height: 111px;
-            background: #F1EEE7;
+            background: #eae1b6;
             margin: 5px;
-            border: solid 3px #948BFF;
+            border: solid 3px #d8294a;
             align-items: center;
             justify-content: center;
             transition: all 0.9s ease;
-            cursor:pointer;
+            cursor: pointer;
         }
 
         .introt{
             width: 50%;
-            background: #F1EEE7;
+            background: #d8294a;
             border-radius: 20px;
             /* align-items: center; */
             justify-content: center;
-            color: #062a5d;
+            color: #eae1b6;
             display: flex;
             margin-top: 10px;
+            font-weight: bold;
         
         }
 
@@ -458,8 +461,41 @@
             height: 73px;
         }
 
+        .icon{
+            background: red;
+            height: 100%;
+            width: 100%;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
 
+        .menu {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+            justify-content: center;
+            gap: 90px;
+        }
 
+        .icon {
+            background: red;
+            height: 50px; /* Ajuste a altura conforme necessário */
+            width: 50px; /* Ajuste a largura conforme necessário */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .selector {
+            margin-top: 10px; /* Espaçamento entre seletores */
+        }
+
+            .selector button {
+                padding: 5px 10px; /* Ajuste o preenchimento conforme necessário */
+                margin: 0 5px; /* Ajuste a margem conforme necessário */
+            }
   </style>
 </head>
 <body>
@@ -470,12 +506,21 @@
           <i class="material-icons">close</i>
         </button>
       </div>
-      <div class="imcorporamento">
-        <div class="play">Play</div>
-        <div class="play">Creditos</div>
-        <div class="play">Opções</div>
-      </div>
-      <div class="menu">Menu</div>
+            <div class="menu">
+                <div class="icon">
+                    <img src="/css/Img/img caua vaz.png" />
+                </div>
+                <div class="selector">
+                    <button>Opção 1</button>
+                </div>
+                <div class="selector">
+                    <button>Opção 1</button>
+                </div>
+                <div class="selector">
+                    <button>Opção 1</button>
+                </div>
+
+            </div>
     </div>
     <div>
     <div class="overlay_secundario">
@@ -539,7 +584,7 @@
             'left': '9%',
             'width': '84%',
             'height': '90%',
-                'background-color': '#0e005f',
+                'background-color': '#125b7c',
             'z-index': '2',
             'border-radius': '32px',
             'box-shadow': '14px 15px 25px #00000021',
@@ -562,7 +607,7 @@
                 'left': '30%',
                 'width': '63%',
                 'height': '90%',
-                'background-color': '#0e005f',
+                'background-color': '#125b7c',
                 'z-index': '2',
                 'border-radius': '0px 32px 32px 0px',
                 'box-shadow': '14px 15px 25px #00000021',
